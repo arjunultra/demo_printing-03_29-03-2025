@@ -68,21 +68,28 @@ let swiper = new Swiper(".gallerySwiper", {
 });
 // Testimonial Swiper - Moves in Opposite Direction
 let testimonialSwiper = new Swiper(".testimonial-swiper", {
-  slidesPerView: 2,
-  spaceBetween: 120,
-  breakpoints: {
-    991: { slidesPerView: 2 },
-    767: { slidesPerView: 1 },
-  },
+  slidesPerView: 1,
+  spaceBetween: 20,
   loop: true,
+  loopedSlides: 6, // match the actual number of slides
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
-    reverseDirection: true, // Not a Swiper property, use rtl instead
   },
-  rtl: true, // Enables right-to-left mode
-  direction: "horizontal", // Keeps it horizontal
+  rtl: true,
+  direction: "horizontal",
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
 });
+
+window.addEventListener("load", () => {
+  testimonialSwiper.update();
+});
+
 // index counter and parallax
 document.addEventListener("DOMContentLoaded", function () {
   // Select the counters and geometry element
